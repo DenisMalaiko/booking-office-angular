@@ -1,0 +1,22 @@
+.sign {
+  height: 100vh;
+  &-wrap {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .alert {
+      margin-top: 20px;
+    }
+  }
+  &-inner {
+    margin-bottom: 20px;
+  }
+  &-form {
+    width: 350px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+  }
+}

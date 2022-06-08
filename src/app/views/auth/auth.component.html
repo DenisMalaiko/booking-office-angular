@@ -1,0 +1,101 @@
+<section class="sign">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sign-wrap">
+
+          <div class="sign-inner" *ngIf="!loading">
+            <form
+              class="sign-form"
+              *ngIf="isSignIn"
+              [formGroup]="signInForm"
+              (ngSubmit)="onSignIn()"
+            >
+              <h1>Sign In</h1>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+              </mat-form-field>
+
+              <div class="example-button-row">
+                <button
+                  type="submit"
+                  mat-raised-button
+                  color="primary"
+                  [disabled]="!this.signInForm.valid && this.signInForm.touched"
+                >Sign In</button>
+                <button
+                  type="button"
+                  (click)="toggleTab()"
+                  mat-button
+                >Sign Up</button>
+              </div>
+            </form>
+
+            <form
+              class="sign-form"
+              *ngIf="!isSignIn"
+              [formGroup]="signUpForm"
+              (ngSubmit)="onSignUp()"
+            >
+              <h1>Sign Up</h1>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input formControlName="name" matInput>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                  <mat-option value="Developer">Developer</mat-option>
+                  <mat-option value="Administrator">Administrator</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+              </mat-form-field>
+
+              <div class="example-button-row">
+                <button
+                  type="submit"
+                  mat-raised-button
+                  color="primary"
+                  [disabled]="!this.signUpForm.valid && this.signUpForm.touched"
+                >Sign Up</button>
+                <button
+                  type="button"
+                  (click)="toggleTab()"
+                  mat-button
+                >Sign In</button>
+              </div>
+            </form>
+          </div>
+
+          <app-loader *ngIf="loading"></app-loader>
+
+          <app-alert
+            *ngIf="!loading && message"
+            [message]="message"
+            [status]="status"
+          ></app-alert>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

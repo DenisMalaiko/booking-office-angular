@@ -1,0 +1,71 @@
+<div class="booking-dialog">
+
+  <app-loader *ngIf="loading"></app-loader>
+
+  <div class="booking-wrap" *ngIf="!loading">
+
+    <form
+      [formGroup]="bookingForm"
+      (ngSubmit)="onSetBooking()"
+      class="booking-form"
+    >
+      <h1 mat-dialog-title>Booking</h1>
+      <mat-dialog-content class="booking-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput [ngModel]="bookingData.name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Table</mat-label>
+          <input formControlName="table" matInput [ngModel]="bookingData.id">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" formGroupName="time">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input
+            [rangePicker]="picker"
+            [comparisonStart]="bookingForm.value.time.start"
+            [comparisonEnd]="bookingForm.value.time.end"
+          >
+            <input
+              matStartDate
+              placeholder="Start date"
+              formControlName="start"
+            >
+            <input
+              matEndDate
+              placeholder="End date"
+              formControlName="end"
+            >
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </mat-dialog-content>
+
+      <mat-dialog-actions>
+        <button
+          type="submit"
+          mat-button
+          mat-raised-button
+          color="primary"
+        >Booking</button>
+        <button
+          type="button"
+          mat-button
+          mat-dialog-close="true"
+          color="primary"
+        >Close</button>
+      </mat-dialog-actions>
+    </form>
+
+    <app-alert
+      *ngIf="!loading && message"
+      [message]="message"
+      [status]="status"
+    ></app-alert>
+
+  </div>
+</div>
