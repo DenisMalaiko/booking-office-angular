@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Output } from '@angular/core';
-import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MAT_DIALOG_DATA, MatDialog } from "@angular/material/dialog";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 
@@ -33,6 +33,7 @@ export class BookingDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public bookingData: any,
     private store: Store<StoreGeneral.AppState>,
+    public dialog: MatDialog
   ) {
   }
 
@@ -42,6 +43,7 @@ export class BookingDialogComponent implements OnInit {
   onSetBooking() {
     if(!this.bookingForm.valid) return;
     this.loading = true;
+
     const booking: BookingModel = {
       user_id: this.bookingData.user_id,
       table_id: this.bookingForm.value.table,
@@ -54,8 +56,8 @@ export class BookingDialogComponent implements OnInit {
     this.store.select("booking").subscribe(state => {
       if(state.message.length){
         this.loading = false;
-        this.message = state.message;
-        this.status = "success";
+        this.message = "";
+        this.dialog.closeAll();
       }
     });
   }

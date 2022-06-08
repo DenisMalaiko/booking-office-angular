@@ -57,10 +57,7 @@ export class AuthComponent implements OnInit {
       }
 
       if(!this.error && !this.isSignIn) {
-        this.loading = false;
-        this.message = "You are success registered! Back to Sign In!";
-        this.status = "success";
-        this.signUpForm.reset();
+        this.toSignIn()
       }
     });
   }
@@ -107,6 +104,7 @@ export class AuthComponent implements OnInit {
   toSignIn(): void{
     this.isSignIn = true;
     this.loading = false;
+    this.message = "";
   }
 
 }
