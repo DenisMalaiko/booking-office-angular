@@ -10,6 +10,7 @@
       class="booking-form"
     >
       <h1 mat-dialog-title>Booking</h1>
+
       <mat-dialog-content class="booking-form">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Name</mat-label>
@@ -18,7 +19,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Table</mat-label>
-          <input formControlName="table" matInput [ngModel]="bookingData.id">
+          <input formControlName="table" matInput [ngModel]="bookingData.number" readonly>
         </mat-form-field>
 
         <mat-form-field appearance="fill" formGroupName="time">
@@ -46,12 +47,33 @@
       </mat-dialog-content>
 
       <mat-dialog-actions>
-        <button
-          type="submit"
-          mat-button
-          mat-raised-button
-          color="primary"
-        >Booking</button>
+        <div *ngIf="!bookingData.booking_id">
+          <button
+            type="submit"
+            mat-button
+            mat-raised-button
+            color="primary"
+          >Booking</button>
+        </div>
+
+        <div *ngIf="bookingData.booking_id">
+          <button
+            type="button"
+            mat-button
+            mat-raised-button
+            color="primary"
+            (click)="onUpdateBooking()"
+          >Update</button>
+
+          <button
+            type="button"
+            mat-button
+            mat-raised-button
+            color="warn"
+            (click)="onDeleteBooking(bookingData.booking_id)"
+          >Delete</button>
+        </div>
+
         <button
           type="button"
           mat-button

@@ -1,0 +1,23 @@
+<section class="sign">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sign-wrap">
+
+          <div class="sign-inner" *ngIf="!loading">
+            <router-outlet></router-outlet>
+          </div>
+
+          <app-loader *ngIf="loading"></app-loader>
+
+          <app-alert
+            *ngIf="!loading && message"
+            [message]="message"
+            [status]="status"
+          ></app-alert>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

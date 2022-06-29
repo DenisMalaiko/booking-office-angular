@@ -6,10 +6,6 @@
   &-title{
     padding: 0 16px;
   }
-  &-caption{
-    font-size: 30px;
-    font-weight: bold;
-  }
   .container-fluid {
     padding-left: 0;
   }
@@ -20,28 +16,21 @@
       margin-right: 10px;
     }
   }
-  &-sidebar{
-    background: var(--bs-purple);
-    height: 100vh;
-    padding-top: 20px;
-    color: white;
-    h1 {
-      margin-bottom: 5px;
-    }
-  }
-  &-top{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 5px;
-  }
-  &-body {
+  &-wrap {
     position: relative;
-    .booking-caption{
-      position: absolute;
-      right: 0;
-    }
+    margin-bottom: 30px;
+    border: 6px solid #F5F5F5;
+    padding: 10px;
+  }
+  &-caption {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    padding: 5px 10px;
+    margin-bottom: 0;
+    transform: translate(5px, -20px);
+    line-height: 100%;
   }
   &-buttons {
     display: flex;
@@ -61,23 +50,21 @@
     }
   }
   &-list {
-    width: 70%;
+    width: 100%;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    padding: 0;
     margin: 0;
-    padding: 15px;
-    gap: 15px;
-    border: 10px solid #F5F5F5;
-    justify-content: space-between
+    padding: 0;
+    gap: 10px;
+    justify-content: space-between;
   }
   &-item {
     flex: 0 18%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20vh;
+    height: 15vh;
     cursor: pointer;
     transition: all .3s ease;
     position: relative;
@@ -91,13 +78,10 @@
       background: var(--bs-purple);
       color: white;
     }
-    &.active {
-      pointer-events: none;
-    }
     .mat-icon{
-      font-size: 60px;
-      width: 60px;
-      height: 60px;
+      font-size: 45px;
+      width: 45px;
+      height: 45px;
     }
     span {
       position: absolute;
@@ -108,7 +92,17 @@
       line-height: 100%;
     }
   }
-
+  &-room {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .mat-icon{
+      font-size: 45px;
+      width: 45px;
+      height: 45px;
+    }
+  }
 }
 
 .mat-list-base .mat-list-item{

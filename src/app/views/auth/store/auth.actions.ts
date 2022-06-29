@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { UserModel } from "../../../models/user.model";
+import { UserModel } from "../../../shared/models/user.model";
 
 export const SIGN_IN = "[AUTH] SIGN_IN";
 export const SIGN_IN_START = "[AUTH] SIGN_IN_START";
@@ -57,6 +57,8 @@ export class LogOut implements Action {
 
 export type SignTypesActions =
   | SignIn
+  | SignInStart
+  | SignUpStart
   | SetCurrentUser
   | SetError
   | ClearError

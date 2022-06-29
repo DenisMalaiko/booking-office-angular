@@ -1,0 +1,17 @@
+<nav class="booking-sidebar">
+  <h1 class="booking-title">Booking App</h1>
+  <h3 class="booking-title">Today: {{today.value | date:'dd.MM.yyyy'}}</h3>
+
+  <mat-list>
+    <mat-list-item [routerLink]="'developers'" routerLinkActive="active" class="booking-link">
+        Developers
+    </mat-list-item>
+    <mat-list-item
+      [routerLink]="'administrators'"
+      routerLinkActive="active"
+      class="booking-link"
+    >
+        Administrators
+    </mat-list-item>
+  </mat-list>
+</nav>

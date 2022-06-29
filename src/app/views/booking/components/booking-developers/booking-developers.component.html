@@ -1,0 +1,38 @@
+<div class="booking-office booking-wrap">
+  <h2 class="booking-caption">Developers Office</h2>
+  <ul class="booking-list">
+    <li
+      *ngFor="let table of office"
+      class="booking-item"
+      (click)="onBookingOpen(table)"
+      [ngClass]="{active: table.myBooking, disabled: table.status || user.role === rolesEnum.admin}"
+    >
+      <mat-icon aria-hidden="false">table_restaurant</mat-icon>
+      <span *ngIf="table.myBooking">My booking</span>
+      <span *ngIf="user.role === rolesEnum.admin">Only for devs</span>
+    </li>
+  </ul>
+</div>
+
+<div class="booking-body-group">
+  <div class="booking-meeting-room booking-wrap">
+    <h2 class="booking-caption">Meeting room</h2>
+    <div
+      [ngClass]="{active: meetingRoom.myBooking, disabled: meetingRoom.status || user.role === rolesEnum.developer}"
+      *ngIf="meetingRoom"
+      (click)="onBookingOpen(meetingRoom)"
+      class="booking-item"
+    >
+      <mat-icon>people</mat-icon>
+      <span *ngIf="meetingRoom.myBooking">My booking</span>
+      <span *ngIf="user.role === rolesEnum.developer">Only for admin</span>
+    </div>
+  </div>
+
+<!--  <div class="booking-play-room booking-wrap">-->
+<!--    <h2 class="booking-caption">Play room</h2>-->
+<!--    <div class="booking-item">-->
+<!--      <mat-icon>videogame_asset</mat-icon>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>

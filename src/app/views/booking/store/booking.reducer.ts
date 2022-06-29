@@ -1,9 +1,11 @@
 import * as BookingActions from "./booking.actions";
 import { BookingTypesActions } from "./booking.actions";
-import { BookingModel } from "../../../models/booking.model";
-import { OfficeModel } from "../../../models/office.model";
+import { BookingModel } from "../../../shared/models/booking.model";
+import { OfficeModel } from "../../../shared/models/office.model";
+import { FormControl } from "@angular/forms";
 
 export interface State {
+  selectDay: any,
   booking: BookingModel[];
   office: OfficeModel[];
   error: any;
@@ -11,6 +13,7 @@ export interface State {
 }
 
 const initialState: State = {
+  selectDay: new Date(),
   booking: [],
   office: [],
   error: "",
@@ -32,6 +35,12 @@ export function bookingReducer(
         ...state,
         booking: [...state.booking, action.payload]
       }
+    case BookingActions.DELETE_BOOKING:
+      // const booking = state.booking.filter(book => book.booking_id !== action.payload);
+      return {
+        ...state,
+        // booking: booking
+      }
     case BookingActions.ADD_BOOKING_MESSAGE:
       return {
         ...state,
@@ -41,6 +50,11 @@ export function bookingReducer(
       return {
         ...state,
         office: action.payload
+      }
+    case BookingActions.SET_SELECT_DAY:
+      return {
+        ...state,
+        selectDay: action.payload
       }
     default:
       return state;

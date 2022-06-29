@@ -1,0 +1,31 @@
+<form
+  class="sign-form"
+  [formGroup]="signInForm"
+  (ngSubmit)="onSignIn()"
+>
+  <h1>Sign In</h1>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input type="password" formControlName="password" matInput>
+  </mat-form-field>
+
+  <div class="example-button-row">
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="!this.signInForm.valid && this.signInForm.touched"
+    >Sign In</button>
+    <button
+      type="button"
+      (click)="toSignUp()"
+      mat-button
+    >Sign Up</button>
+  </div>
+</form>

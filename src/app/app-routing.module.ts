@@ -1,13 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthComponent } from "./views/auth/auth.component";
-import { BookingComponent } from "./views/booking/booking.component";
-
 const routes: Routes = [
-  {path: "", component: AuthComponent},
-  {path: "booking", component: BookingComponent},
-  {path: "**", redirectTo: "", pathMatch: "full"},
+  {
+    path: "",
+    pathMatch: "full",
+    redirectTo: "auth/sign-in"
+  },
+  {
+    path: "auth",
+    loadChildren: () => import("./views/auth/auth.module").then(m => m.AuthModule),
+  },
+  {
+    path: "booking",
+    loadChildren: () => import("./views/booking/booking.module").then(m => m.BookingModule),
+  },
+  {
+    path: "**",
+    redirectTo: "auth/sign-in",
+    pathMatch: "full"
+  },
 ];
 
 @NgModule({

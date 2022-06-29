@@ -1,0 +1,29 @@
+.booking{
+  &-title{
+    padding: 0 16px;
+  }
+  &-link {
+    cursor: pointer;
+    &.active {
+      background: rgba(0,0,0,0.2);
+    }
+    &.disabled {
+      pointer-events: none;
+      background: rgba(169, 169, 169, 0.3);
+      color: rgba(169, 169, 169, 1) !important;
+    }
+  }
+  &-sidebar{
+    background: var(--bs-purple);
+    height: 100vh;
+    padding-top: 20px;
+    color: white;
+    h1 {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.mat-list-base .mat-list-item{
+  color: white;
+}
