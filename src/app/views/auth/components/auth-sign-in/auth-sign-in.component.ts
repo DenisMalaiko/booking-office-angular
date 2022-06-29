@@ -26,8 +26,8 @@ export class AuthSignInComponent implements OnInit{
 
   private setSignInForm(): void {
     this.signInForm = new FormGroup({
-      "email": new FormControl("admin@gmail.com", [Validators.required, Validators.email]),
-      "password": new FormControl("123456", [Validators.required])
+      "email": new FormControl("", [Validators.required, Validators.email]),
+      "password": new FormControl("", [Validators.required])
     });
   };
 
