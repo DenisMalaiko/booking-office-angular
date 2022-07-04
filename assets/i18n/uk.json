@@ -1,0 +1,37 @@
+{
+  "general": {
+    "project": "Booking App",
+    "today": "Today",
+    "chooseData": "Choose a date",
+    "logOut": "Logout",
+    "myBooking": "My booking",
+    "developersOffice": "Developers Office",
+    "administratorsOffice": "Administrators Office",
+    "meetingRoom": "Meeting Room",
+    "onlyForDevs": "Only for devs",
+    "onlyForAdmin": "Only for admin",
+    "booking": "Booking"
+  },
+  "pages": {
+    "developers": "Developers",
+    "administrators": "Administrators"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up"
+  },
+  "actions": {
+    "booking": "Booking",
+    "update": "Update",
+    "delete": "Delete",
+    "close": "Close"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "password": "Password",
+    "table": "Table",
+    "enterDateRange": "Enter a date range"
+  }
+}
