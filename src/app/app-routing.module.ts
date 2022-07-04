@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+
+import {AuthGuard} from "./core/helpers/auth.guard";
 
 const routes: Routes = [
   {
@@ -14,6 +16,11 @@ const routes: Routes = [
   {
     path: "booking",
     loadChildren: () => import("./views/booking/booking.module").then(m => m.BookingModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "403",
+    loadChildren: () => import("./views/403/403.module").then(m => m.Module403)
   },
   {
     path: "**",
@@ -26,4 +33,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,15 +1,15 @@
 <div class="booking-office booking-wrap">
-  <h2 class="booking-caption">Administrators Office</h2>
+  <h2 class="booking-caption">{{'general.administratorsOffice' | translate}}</h2>
   <ul class="booking-list">
     <li
-      *ngFor="let table of office"
-      class="booking-item"
       (click)="onBookingOpen(table)"
+      *ngFor="let table of office"
       [ngClass]="{active: table.myBooking, disabled: table.status || user.role === rolesEnum.developer}"
+      class="booking-item"
     >
       <mat-icon aria-hidden="false">table_restaurant</mat-icon>
-      <span *ngIf="user.role === rolesEnum.developer">Only for admin</span>
-      <span *ngIf="table.myBooking">My booking</span>
+      <span *ngIf="user.role === rolesEnum.developer">{{'general.onlyForAdmin' | translate}}</span>
+      <span *ngIf="table.myBooking">{{'general.myBooking' | translate}}</span>
     </li>
   </ul>
 </div>

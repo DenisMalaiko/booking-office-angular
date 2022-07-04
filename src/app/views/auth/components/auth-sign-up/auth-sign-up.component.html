@@ -1,22 +1,22 @@
 <form
-  class="sign-form"
-  [formGroup]="signUpForm"
   (ngSubmit)="onSignUp()"
+  [formGroup]="signUpForm"
+  class="sign-form"
 >
-  <h1>Sign Up</h1>
+  <h1>{{'auth.signUp' | translate}}</h1>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Name</mat-label>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>{{'form.name' | translate}}</mat-label>
     <input formControlName="name" matInput>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Email</mat-label>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>{{'form.email' | translate}}</mat-label>
     <input formControlName="email" matInput>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Role</mat-label>
+    <mat-label>{{'form.role' | translate}}</mat-label>
     <mat-select formControlName="role">
       <mat-option
         *ngFor="let item of roles"
@@ -25,22 +25,24 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Password</mat-label>
-    <input type="password" formControlName="password" matInput>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>{{'form.password' | translate}}</mat-label>
+    <input formControlName="password" matInput type="password">
   </mat-form-field>
 
   <div class="example-button-row">
     <button
-      type="submit"
-      mat-raised-button
-      color="primary"
       [disabled]="!this.signUpForm.valid && this.signUpForm.touched"
-    >Sign Up</button>
+      color="primary"
+      mat-raised-button
+      type="submit"
+    >{{'auth.signUp' | translate}}
+    </button>
     <button
-      type="button"
       (click)="toSignIn()"
       mat-button
-    >Sign In</button>
+      type="button"
+    >{{'auth.signIn' | translate}}
+    </button>
   </div>
 </form>

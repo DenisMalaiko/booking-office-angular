@@ -1,14 +1,14 @@
 <div class="booking-top">
   <div class="booking-actions">
     <mat-form-field appearance="fill">
-      <mat-label>Choose a date</mat-label>
+      <mat-label>{{'general.chooseData' | translate}}</mat-label>
       <input
-        [matDatepicker]="picker"
         (dateChange)="onChangeEvent($event)"
         [formControl]="currentDate"
+        [matDatepicker]="picker"
         matInput
       >
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </div>
@@ -16,13 +16,13 @@
   <div class="booking-buttons">
     <h3>
       {{user.name}}
-      <span>Role: {{user.role}}</span>
+      <span>{{'form.role' | translate}}: {{user.role}}</span>
     </h3>
 
     <button
       (click)="onLogout()"
-      mat-raised-button
       color="primary"
-    >Logout</button>
+      mat-raised-button
+    >{{'general.logOut' | translate}}</button>
   </div>
 </div>

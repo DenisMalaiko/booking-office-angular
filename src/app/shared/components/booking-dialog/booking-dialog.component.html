@@ -9,21 +9,21 @@
       (ngSubmit)="onSetBooking()"
       class="booking-form"
     >
-      <h1 mat-dialog-title>Booking</h1>
+      <h1 mat-dialog-title>{{'general.booking' | translate}}</h1>
 
       <mat-dialog-content class="booking-form">
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Name</mat-label>
+          <mat-label>{{'form.name' | translate}}</mat-label>
           <input formControlName="name" matInput [ngModel]="bookingData.name">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Table</mat-label>
+          <mat-label>{{'form.table' | translate}}</mat-label>
           <input formControlName="table" matInput [ngModel]="bookingData.number" readonly>
         </mat-form-field>
 
         <mat-form-field appearance="fill" formGroupName="time">
-          <mat-label>Enter a date range</mat-label>
+          <mat-label>{{'form.enterDateRange' | translate}}</mat-label>
           <mat-date-range-input
             [rangePicker]="picker"
             [comparisonStart]="bookingForm.value.time.start"
@@ -53,7 +53,7 @@
             mat-button
             mat-raised-button
             color="primary"
-          >Booking</button>
+          >{{'actions.booking' | translate}}</button>
         </div>
 
         <div *ngIf="bookingData.booking_id">
@@ -63,7 +63,7 @@
             mat-raised-button
             color="primary"
             (click)="onUpdateBooking()"
-          >Update</button>
+          >{{'actions.update' | translate}}</button>
 
           <button
             type="button"
@@ -71,7 +71,7 @@
             mat-raised-button
             color="warn"
             (click)="onDeleteBooking(bookingData.booking_id)"
-          >Delete</button>
+          >{{'actions.delete' | translate}}</button>
         </div>
 
         <button
@@ -79,13 +79,13 @@
           mat-button
           mat-dialog-close="true"
           color="primary"
-        >Close</button>
+        >{{'actions.close' | translate}}</button>
       </mat-dialog-actions>
     </form>
 
     <app-alert
-      *ngIf="!loading && message"
-      [message]="message"
+      *ngIf="!loading && mess"
+      [message]="mess"
       [status]="status"
     ></app-alert>
 

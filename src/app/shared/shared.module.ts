@@ -1,32 +1,32 @@
 // Modules
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
-
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from "@angular/common/http";
+import {TranslateModule} from '@ngx-translate/core';
 
 // Firebase
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFireAuthModule} from '@angular/fire/compat/auth';
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 // Material
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from "@angular/material/input";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule } from '@angular/material/dialog';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
 
 // Components
-import { BookingDialogComponent } from './components/booking-dialog/booking-dialog.component';
-import { LoaderComponent } from "./components/loader/loader.component";
-import { AlertComponent } from './components/alert/alert.component';
+import {BookingDialogComponent} from './components/booking-dialog/booking-dialog.component';
+import {LoaderComponent} from "./components/loader/loader.component";
+import {AlertComponent} from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { AlertComponent } from './components/alert/alert.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    TranslateModule,
 
     AngularFireModule,
     AngularFireAuthModule,
@@ -64,6 +65,7 @@ import { AlertComponent } from './components/alert/alert.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    TranslateModule,
 
     AngularFireModule,
     AngularFireAuthModule,
@@ -88,4 +90,5 @@ import { AlertComponent } from './components/alert/alert.component';
   providers: [],
 })
 
-export class SharedModule { }
+export class SharedModule {
+}

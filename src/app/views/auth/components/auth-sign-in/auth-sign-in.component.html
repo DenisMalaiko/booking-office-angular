@@ -1,31 +1,36 @@
 <form
-  class="sign-form"
-  [formGroup]="signInForm"
   (ngSubmit)="onSignIn()"
+  [formGroup]="signInForm"
+  class="sign-form"
 >
-  <h1>Sign In</h1>
+  <h1>{{'auth.signIn' | translate}}</h1>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Email</mat-label>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>{{'form.email' | translate}}</mat-label>
+
     <input formControlName="email" matInput>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Password</mat-label>
-    <input type="password" formControlName="password" matInput>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>{{'form.password' | translate}}</mat-label>
+
+    <input formControlName="password" matInput type="password">
   </mat-form-field>
 
   <div class="example-button-row">
     <button
-      type="submit"
-      mat-raised-button
-      color="primary"
       [disabled]="!this.signInForm.valid && this.signInForm.touched"
-    >Sign In</button>
+      color="primary"
+      mat-raised-button
+      type="submit"
+    >{{'auth.signIn' | translate}}
+    </button>
+
     <button
-      type="button"
       (click)="toSignUp()"
       mat-button
-    >Sign Up</button>
+      type="button"
+    >{{'auth.signUp' | translate}}
+    </button>
   </div>
 </form>

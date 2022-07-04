@@ -1,7 +1,7 @@
-import { Component, Input } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { UserModel } from "../../../../shared/models/user.model";
-import { RolesEnum } from "../../../../core/enums/roles.enum";
+import {Component, Input} from "@angular/core";
+import {FormControl} from "@angular/forms";
+import {UserModel} from "../../../../shared/models/user.model";
+import {RolesEnum} from "../../../../core/enums/roles.enum";
 
 @Component({
   selector: 'app-booking-nav',

@@ -4,16 +4,16 @@
       <div class="col-12">
         <div class="sign-wrap">
 
-          <div class="sign-inner" *ngIf="!loading">
+          <div *ngIf="!loading" class="sign-inner">
             <router-outlet></router-outlet>
           </div>
 
           <app-loader *ngIf="loading"></app-loader>
 
           <app-alert
-            *ngIf="!loading && message"
-            [message]="message"
-            [status]="status"
+            *ngIf="!loading && mess"
+            [message]="mess"
+            [status]="stat"
           ></app-alert>
 
         </div>

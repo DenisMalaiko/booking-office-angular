@@ -1,15 +1,15 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { MatDialog } from "@angular/material/dialog";
-import { Store } from "@ngrx/store";
+import {Component, Input, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {Store} from "@ngrx/store";
 
 import * as StoreGeneral from "../../../../store";
-import { BookingDialogComponent } from "../../../../shared/components/booking-dialog/booking-dialog.component";
-import { UserModel } from "../../../../shared/models/user.model";
-import { OfficeModel } from "../../../../shared/models/office.model";
-import { BookingModel } from "../../../../shared/models/booking.model";
-import { roles, Roles } from "../../../../core/consts/Roles.const";
-import { RolesEnum } from "../../../../core/enums/roles.enum";
+import {BookingDialogComponent} from "../../../../shared/components/booking-dialog/booking-dialog.component";
+import {UserModel} from "../../../../shared/models/user.model";
+import {OfficeModel} from "../../../../shared/models/office.model";
+import {BookingModel} from "../../../../shared/models/booking.model";
+import {roles, Roles} from "../../../../core/consts/Roles.const";
+import {RolesEnum} from "../../../../core/enums/roles.enum";
 import * as BookingActions from "../../store/booking.actions";
 import {FormControl} from "@angular/forms";
 
@@ -34,7 +34,8 @@ export class BookingDevelopersComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private store: Store<StoreGeneral.AppState>
-  ) { }
+  ) {
+  }
 
   public ngOnInit(): void {
     this.store.dispatch(new BookingActions.GetBookings(this.today.value));
@@ -48,7 +49,7 @@ export class BookingDevelopersComponent implements OnInit {
       this.office = state.office;
       this.bookings = state.booking;
       this.selectDay = state.selectDay;
-      if(this.office.length && this.bookings.length) {
+      if (this.office.length && this.bookings.length) {
         this.showBooking();
       }
     });
@@ -73,10 +74,10 @@ export class BookingDevelopersComponent implements OnInit {
     this.office.forEach((table: any) => {
       const tableCopy = {...table}
 
-      if(this.bookings.find((book: BookingModel) => book.table_id === table.number && book.floor_id === this.roles[0].floor)) {
+      if (this.bookings.find((book: BookingModel) => book.table_id === table.number && book.floor_id === this.roles[0].floor)) {
         tableCopy.status = true;
         let indexBooking = this.bookings.findIndex((book: BookingModel) => book.table_id === table.number);
-        if(this.bookings[indexBooking].user_id === this.user.id) {
+        if (this.bookings[indexBooking].user_id === this.user.id) {
           tableCopy.myBooking = true;
           tableCopy.status = false;
           tableCopy.booking_id = this.bookings[indexBooking].id;
@@ -87,7 +88,7 @@ export class BookingDevelopersComponent implements OnInit {
         tableCopy.status = false;
       }
 
-      if(!tableCopy.isMeetingRoom){
+      if (!tableCopy.isMeetingRoom) {
         officeCopy.push(tableCopy)
       } else {
         this.meetingRoom = tableCopy;

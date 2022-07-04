@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import * as BookingActions from "../../store/booking.actions";
 import {Store} from "@ngrx/store";
 import * as StoreGeneral from "../../../../store";
-import { roles, Roles } from "../../../../core/consts/Roles.const";
+import {roles, Roles} from "../../../../core/consts/Roles.const";
 import {OfficeModel} from "../../../../shared/models/office.model";
 import {FormControl} from "@angular/forms";
 import {BookingModel} from "../../../../shared/models/booking.model";
@@ -30,7 +30,8 @@ export class BookingAdministratorsComponent implements OnInit {
   constructor(
     private store: Store<StoreGeneral.AppState>,
     private dialog: MatDialog,
-  ) {}
+  ) {
+  }
 
   public ngOnInit(): void {
     this.store.dispatch(new BookingActions.GetBookings(this.selectDay));
@@ -44,7 +45,7 @@ export class BookingAdministratorsComponent implements OnInit {
       this.office = state.office;
       this.bookings = state.booking;
       this.selectDay = state.selectDay;
-      if(this.office.length && this.bookings.length) {
+      if (this.office.length && this.bookings.length) {
         this.showBooking()
       }
     });
@@ -54,10 +55,10 @@ export class BookingAdministratorsComponent implements OnInit {
     const officeCopy: OfficeModel[] = [];
     this.office.forEach((table: any) => {
       const tableCopy = {...table}
-      if(this.bookings.find((book: BookingModel) => book.table_id === table.number && book.floor_id === this.roles[1].floor)) {
+      if (this.bookings.find((book: BookingModel) => book.table_id === table.number && book.floor_id === this.roles[1].floor)) {
         tableCopy.status = true;
         let indexBooking = this.bookings.findIndex((book: BookingModel) => book.table_id === table.number);
-        if(this.bookings[indexBooking].user_id === this.user.id) {
+        if (this.bookings[indexBooking].user_id === this.user.id) {
           tableCopy.myBooking = true;
           tableCopy.status = false;
           tableCopy.booking_id = this.bookings[indexBooking].id;

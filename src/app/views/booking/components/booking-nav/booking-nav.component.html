@@ -1,17 +1,21 @@
 <nav class="booking-sidebar">
-  <h1 class="booking-title">Booking App</h1>
-  <h3 class="booking-title">Today: {{today.value | date:'dd.MM.yyyy'}}</h3>
+  <h1 class="booking-title">{{'general.project' | translate}}</h1>
+  <h3 class="booking-title">{{'general.today' | translate}}: {{today.value | date:'dd.MM.yyyy'}}</h3>
 
   <mat-list>
-    <mat-list-item [routerLink]="'developers'" routerLinkActive="active" class="booking-link">
-        Developers
+    <mat-list-item
+      [routerLink]="'developers'"
+      class="booking-link"
+      routerLinkActive="active"
+    >
+      {{'pages.developers' | translate}}
     </mat-list-item>
     <mat-list-item
       [routerLink]="'administrators'"
-      routerLinkActive="active"
       class="booking-link"
+      routerLinkActive="active"
     >
-        Administrators
+      {{'pages.administrators' | translate}}
     </mat-list-item>
   </mat-list>
 </nav>

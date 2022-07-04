@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { Store } from "@ngrx/store";
+import {Component, OnInit} from "@angular/core";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {Store} from "@ngrx/store";
 
 import * as StoreGeneral from "../../../../store";
 import * as AuthActions from "../../store/auth.actions";
-import { UserModel } from "../../../../shared/models/user.model";
-import { RolesEnum } from "../../../../core/enums/roles.enum";
+import {UserModel} from "../../../../shared/models/user.model";
+import {RolesEnum} from "../../../../core/enums/roles.enum";
 
 @Component({
   selector: 'app-sign-up',
@@ -20,7 +20,8 @@ export class AuthSignUpComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store<StoreGeneral.AppState>
-  ) {}
+  ) {
+  }
 
   public ngOnInit(): void {
     this.setSignUpForm();
@@ -36,7 +37,7 @@ export class AuthSignUpComponent implements OnInit {
   }
 
   async onSignUp() {
-    if(!this.signUpForm.valid) return;
+    if (!this.signUpForm.valid) return;
 
     const user: UserModel = this.signUpForm.value;
 
